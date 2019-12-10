@@ -6,6 +6,10 @@
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "test": "jest",
+    "dbreset": "firebase firestore:delete --all-collections",
+    "dbreset:publishers": "firebase firestore:delete -y --shallow publishers",
+    "dbseed": "npm run dbseed:publishers",
+    "dbseed:publishers": "node lib/commands/dbseed.js publishers seeds/publishers.tsv",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
