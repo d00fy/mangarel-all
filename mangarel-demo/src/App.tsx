@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { FC } from 'react';
+import { Redirect, Route, Switch } from 'react-router';
+
+import Book from 'components/Book';
+import Home from 'components/Home';
+import NavigationBar from 'components/common/menubar/NavigationBar';
+import Search from 'components/Search';
+import Spacer from 'components/common/atoms/Spacer';
+import paths from './paths';
 import './App.css';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: FC = () => (
+  <div>
+    <NavigationBar />
+    <Spacer />
+    <Switch>
+      <Route path={paths.book} component={Book} />
+      <Route path={paths.home} component={Home} exact />
+      <Route path={paths.search} component={Search} />
+      <Redirect to={paths.home} />
+    </Switch>
+  </div>
+);
 
 export default App;
