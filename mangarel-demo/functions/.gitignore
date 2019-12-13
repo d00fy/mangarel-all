@@ -9,3 +9,4 @@ node_modules/
 
 # 虫
 src/mangarel-demo-firebase-adminsdk.json
+src/lib/mangarel-demo-firebase-adminsdk.json
